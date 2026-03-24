@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import requests
 import argparse
 import re
@@ -5,14 +6,13 @@ from collections import defaultdict
 
 def main():
     parser = argparse.ArgumentParser(
-        prog = 'KeePass2 dump file cracker',
-        description = 'cracks passwords in KeePass2 dumps in python',
+        prog = 'KeePass2 password finder',
+        description = 'cracks passwords in KeePass2 dumps with python',
         epilog = 'there are no more arguments'
     )
     parser.add_argument(
-        "-f", "--file",
-        required = True,
-        help = "file with password dump"
+        "file",
+        help = "KeePass2 dump file"
     )
     
     args = parser.parse_args()
@@ -52,7 +52,7 @@ def main():
                     except UnicodeDecodeError:
                         continue
 
-                    test = re.findall(allowedChars,strChar)
+                    test = re.findall(allowedChars,strChar) #regex checker
 
                     if len(test) >= 1:
                         candidates[currentStrLen].add(strChar)

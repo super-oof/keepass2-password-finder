@@ -2,4 +2,10 @@
 
 This is a proof of context for CVE-2023-32784, which I rewrote in python.
 
-Only requirement is a file name.
+Only requirement is a file name
+
+Usage:
+
+```
+./cracker.py [file]
+```
